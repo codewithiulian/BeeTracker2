@@ -50,7 +50,7 @@ namespace BeeTracker2
             Bee bee = bees.Where(b => b.ID == beeId).FirstOrDefault();
             int damage = new Random().Next(81);
 
-            bee.Damage(damage);
+            BeeController.Damage(damage, ref bee);
 
             DefineBeesSession(bees);
 

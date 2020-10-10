@@ -25,5 +25,22 @@ namespace BeeTracker2.Controllers
 
             return bees;
         }
+
+        public void Damage(int damagePercentage, ref Bee bee)
+        {
+            if (!bee.IsDead)
+            {
+                bee.Health -= (damagePercentage / bee.Health) * 100;
+                SetLifeStatus(ref bee);
+            }
+        }
+
+        private void SetLifeStatus(ref Bee bee)
+        {
+            if (bee.Health < bee.HealthResistance)
+            {
+                bee.IsDead = true;
+            }
+        }
     }
 }
