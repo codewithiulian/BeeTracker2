@@ -32,7 +32,7 @@ namespace BeeTracker2.Controllers
             {
                 float lifeLeft = bee.Health - (damagePercentage / bee.Health) * 100;
                 if (lifeLeft < 0) { lifeLeft = 0; }
-                bee.Health = lifeLeft;
+                bee.Health = (float)Math.Round(lifeLeft, 2);
                 SetLifeStatus(ref bee);
             }
         }
